@@ -21,8 +21,8 @@ class ScanText(Resource):
         - a python dict object of string "Error" as key and "no companies found" as value
         """
         result = self.ner(text)
-        words = [entry['word'] for entry in result if entry['entity'] == 'I-ORG']
-        scores = [entry['score'] for entry in result if entry['entity'] == 'I-ORG']
+        words = [entry["word"] for entry in result if entry["entity"] == "I-ORG"]
+        scores = [entry["score"] for entry in result if entry["entity"] == "I-ORG"]
         confidences, names = words_to_companies(scores, words)
         if len(names) < 1:
             return {"Error": "no companies found"}
@@ -31,16 +31,16 @@ class ScanText(Resource):
     def post(self):
         """API post function"""
         parser = reqparse.RequestParser()
-        parser.add_argument('text')
-        text = parser.parse_args()['text']
+        parser.add_argument("text")
+        text = parser.parse_args()["text"]
         if text == "":
             company_names = {"Error": "empty text"}
         else:
-            company_names = self.extract_companies(text)        # no persistence assumed
+            company_names = self.extract_companies(text)  # no persistence assumed
 
         # build API response object
         resp = jsonify(company_names)
-        if 'Error' not in str(company_names):
+        if "Error" not in str(company_names):
             resp.status_code = 200
         else:
             resp.status_code = 400
