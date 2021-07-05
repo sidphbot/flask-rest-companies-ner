@@ -1,0 +1,4 @@
+torch==1.9.0
+transformers==4.8.2
+flask==1.1.2
+flask-restful==0.3.9

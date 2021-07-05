@@ -1,5 +1,5 @@
 def words_to_companies(scores, words):
-    """ scans I-ORG word tokens to form complete company names and respective aggregated confidences
+    """scans I-ORG word tokens to form complete company names and respective aggregated confidences
     :param scores:[float] confidence scores of each word token
     :param words:[str] word tokens
 
@@ -7,10 +7,14 @@ def words_to_companies(scores, words):
     """
     names = []
     confidences = []
-    lastname = ''
+    lastname = ""
     for i in range(len(words)):
-        if '##' in words[i] or words[i] == '-' or str(lastname[-1] if len(lastname) > 0 else '') == '-':
-            lastname = lastname + words[i].replace('#', '')
+        if (
+            "##" in words[i]
+            or words[i] == "-"
+            or str(lastname[-1] if len(lastname) > 0 else "") == "-"
+        ):
+            lastname = lastname + words[i].replace("#", "")
             names[-1] = lastname
             confidences[-1] = (confidences[-1] + float(scores[i])) / 2
         else:
