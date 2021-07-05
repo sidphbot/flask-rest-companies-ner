@@ -1,4 +1,23 @@
 # flask-rest-companies-ner
-Flask REST API micro-service for extracting company names and confidence scores from a given piece of text
+Flask REST API micro-service with a single resource ` ScanText ` for extracting company names and confidence scores from a given piece of text.
 
-Usage: run ner-app/app.py
+### Requirements:
+- torch (>=1.9.0)
+- transformers (>=4.8.2)
+- flask (>=1.1.2)
+- flask-restful (>=0.3.9)
+
+
+### Run API Server: 
+
+```
+cd ner_app/
+python __init__.py
+```
+or, 
+
+### Run client Tests:
+
+```
+pytest
+```
