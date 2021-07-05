@@ -11,9 +11,9 @@ Flask REST API micro-service with a single resource ` ScanText ` for extracting 
 ### Run API Server: 
 
 ```
-cd ner_app/
-python __init__.py
+python app.py
 ```
+
 or, 
 
 ### Run client Tests:
