@@ -1,4 +1,4 @@
-from ner_app.utils import words_to_companies
+from ..utils import words_to_companies
 
 from flask import jsonify
 from flask_restful import Resource, reqparse

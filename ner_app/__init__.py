@@ -15,7 +15,7 @@ def create_ner_app():
     # - may use custom ner pipeline object generation function with custom checkpoints
     from transformers import pipeline
 
-    ner_pipeline = pipeline("ner")
+    ner_pipeline = pipeline("ner", framework='pt')
 
     # create flask app
     app = Flask(__name__)
