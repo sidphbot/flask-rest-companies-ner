@@ -42,7 +42,8 @@ sample output:
 pytest
 ```
 
-### Build a Docker Image for platform independence (could not be tested due to local docker environment issues, but it should work)
+### Build a Docker Image 
+###### for platform independence (could not be tested due to local docker environment issues, but it should work)
 ```
 docker build .
 ```
